@@ -17,21 +17,25 @@
 			if(n<=1){
 				return '-Infinity';
 			}
-			else if(arr[n-2]==arr[n-1] && arr[n-2]==arr[n-3]){
-				return '-Infinity';
-			}
+			else if(arr[n-2]==arr[n-1]){
+				for(let i=n-2;i>=0;i--){
+					if(a[i]>a[i-1]){
+						return a[i-1];
+					}
+				}
+			} 
 			else{
 			return arr[n-2];
 			}
-			
-		}
-  
+			return '-Infinity';
+		}  
+     
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
-			}
+			} 
 			alert(secondHighest(arr));
 		}
 		Main();
